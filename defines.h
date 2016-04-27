@@ -20,6 +20,7 @@ using namespace std;
 #define SPAWNPROCESS 50
 #define MEANCYCLES 6000
 #define MEANMEM 20
+#define BLOCKSIZE 20
 
 
 //Structure for my processe information
@@ -34,5 +35,10 @@ typedef struct RandomNumbers {
    int cycles;
    int mem;
 }RandomNumbers;
+
+typedef struct loadedProcesses {
+   int removeCycleTime;
+   Process p;
+}LoadedProcesses;
 
 #endif

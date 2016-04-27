@@ -20,7 +20,7 @@ void startProcesses(vector<Process> set){
 }
 */
 
-void startProcesses(vector<Process> set){
+void startPart1Processes(vector<Process> set){
    int runTimeInCycles = runProcesses(set);
    cout << "Part 1 runtime was : " << runTimeInCycles << " cycles" << endl << endl;
 }
