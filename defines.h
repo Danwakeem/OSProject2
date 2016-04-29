@@ -20,7 +20,7 @@ using namespace std;
 #define SPAWNPROCESS 50
 #define MEANCYCLES 6000
 #define MEANMEM 20
-#define BLOCKSIZE 20
+#define BLOCKSIZE 20000
 
 
 //Structure for my processe information
