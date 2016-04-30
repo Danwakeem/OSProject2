@@ -38,6 +38,7 @@ typedef struct RandomNumbers {
 
 typedef struct loadedProcesses {
    int removeCycleTime;
+   int startIndex;
    Process p;
 }LoadedProcesses;
 

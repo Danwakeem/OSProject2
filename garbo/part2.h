@@ -4,12 +4,14 @@
 
 class Part2 {
    private:
+      int *memBlock; //0 means empty 1 means full
       int totalMem;
       int currOffSet;
       int totalCycleTime;
       vector<LoadedProcesses> lp;
    public: 
       Part2();
+      ~Part2();
       void startPart2Processes(vector<Process>set);
       void runProcesses(vector<Process>set);
       int findExpiredProcess();
