@@ -5,10 +5,11 @@
 class MemoryManager {
    private:
       int *memBlock;
+      int *toggleBlock;
       int totalBlocks;
       int totalMem;
-      int totalCycles;
-      int currCycles;
+      unsigned long long totalCycles;
+      unsigned long long currCycles;
       int processesLoaded;
       vector<Process> waitQueue;
       map<int,LoadedProcesses> runningQueue; //Key is the pid
@@ -20,6 +21,7 @@ class MemoryManager {
       LoadedProcesses createLoadedProcess(Process p, int startIndex);
       bool my_malloc(LoadedProcesses p);
       void my_free(LoadedProcesses p);
+      void shuffleMemory();
       int findEmptySlot(int size);
       map<int,LoadedProcesses>::iterator findExpiredProcess();
 };
