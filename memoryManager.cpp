@@ -1,9 +1,8 @@
 #include "memoryManager.h"
 
-MemoryManager::MemoryManager(int blockSize){
-   //memBlock = (int*)malloc(sizeof(int)*blockSize);
+MemoryManager::MemoryManager(int blockSize,string name){
+   programName = name;
    memBlock = new int[blockSize];
-   //toggleBlock = (int*)malloc(sizeof(int)*blockSize);
    toggleBlock = new int[blockSize];
    for(int i = 0; i < blockSize; i++){ memBlock[i] = 0; toggleBlock[i] = 0; }
    totalBlocks = blockSize;
@@ -23,8 +22,16 @@ MemoryManager::~MemoryManager(){
 }
 
 void MemoryManager::startMemoryManager(vector<Process> set){
+   timespec begin;
+   timespec end;
+   clock_gettime(CLOCK_REALTIME, &begin);
+
    runMemoryManager(set);
-   cout << "Total cycles were : " << totalCycles << " cycles" << endl;
+
+   clock_gettime(CLOCK_REALTIME, &end);
+   
+   cout << programName << " runtime was : " << totalCycles << " cycles" << endl;
+   cout << "Time for " << programName << " took : " << end.tv_nsec - begin.tv_nsec << " nano seconds" << endl << endl;
 }
 
 void MemoryManager::runMemoryManager(vector<Process> set){
@@ -69,7 +76,7 @@ LoadedProcesses MemoryManager::createLoadedProcess(Process p, int startIndex){
 }
 
 bool MemoryManager::my_malloc(LoadedProcesses l){
-   cout << "Process Loading with currCycles = " << currCycles << endl;
+   //cout << "Process Loading with currCycles = " << currCycles << endl;
    for(int i = 0; i < l.p.mem; i++){
       memBlock[l.startIndex+i] = l.p.pid;
    }

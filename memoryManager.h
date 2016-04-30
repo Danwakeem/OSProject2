@@ -8,13 +8,14 @@ class MemoryManager {
       int *toggleBlock;
       int totalBlocks;
       int totalMem;
+      string programName;
       unsigned long long totalCycles;
       unsigned long long currCycles;
       int processesLoaded;
       vector<Process> waitQueue;
       map<int,LoadedProcesses> runningQueue; //Key is the pid
    public:
-      MemoryManager(int blockSize);
+      MemoryManager(int blockSize,string name);
       ~MemoryManager();
       void runMemoryManager(vector<Process> set);
       void startMemoryManager(vector<Process> set);

@@ -1,28 +1,15 @@
 #include "part1.h"
 
-/*
-I am not sure if we are supposed to be reading real time but if we are then we can
-just use this function instead of the other. Also we will have to compile to project differently
-with this
-
-void startProcesses(vector<Process> set){
+void startPart1Processes(vector<Process> set){
    timespec begin;
    timespec end;
-
    clock_gettime(CLOCK_REALTIME, &begin);
 
-   runProcesses(set);
+   int runTimeInCycles = runProcesses(set);
 
    clock_gettime(CLOCK_REALTIME, &end);
-
-   long runtime = end.tv_nsec - begin.tv_nsec;
-   cout << "Time for Part 1 took : " << runtime << endl;
-}
-*/
-
-void startPart1Processes(vector<Process> set){
-   int runTimeInCycles = runProcesses(set);
-   cout << "Part 1 runtime was : " << runTimeInCycles << " cycles" << endl << endl;
+   cout << "Part 1 runtime was : " << runTimeInCycles << " cycles" << endl;
+   cout << "Time for Part 1 took : " << end.tv_nsec - begin.tv_nsec << " nano seconds" << endl << endl;
 }
 
 int runProcesses(vector<Process> set){
