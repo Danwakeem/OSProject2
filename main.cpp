@@ -34,7 +34,6 @@ int main(){
    p3b->startMemoryManager(set);
    delete p3b;   
 
-   cout << "END OF PROG" << endl;
 
    return 0;
 }

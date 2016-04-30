@@ -5,7 +5,7 @@ MemoryManager::MemoryManager(int blockSize){
    memBlock = new int[blockSize];
    //toggleBlock = (int*)malloc(sizeof(int)*blockSize);
    toggleBlock = new int[blockSize];
-   for(int i = 0; i < blockSize; i++) memBlock[i] = 0;
+   for(int i = 0; i < blockSize; i++){ memBlock[i] = 0; toggleBlock[i] = 0; }
    totalBlocks = blockSize;
    totalMem = blockSize;
    totalCycles = 0;
@@ -14,8 +14,12 @@ MemoryManager::MemoryManager(int blockSize){
 }
 
 MemoryManager::~MemoryManager(){
-   free(memBlock);
-   free(toggleBlock);
+   waitQueue.clear();
+   runningQueue.clear();
+   delete [] this->memBlock;
+   delete [] this->toggleBlock;
+   //free(memBlock);
+   //free(toggleBlock);
 }
 
 void MemoryManager::startMemoryManager(vector<Process> set){
@@ -117,7 +121,11 @@ int MemoryManager::findEmptySlot(int size){
          }
       }
    }
-   return startIndex;
+   if(blockCount == size){
+      return startIndex;
+   } else {
+      return -1;
+   }
 }
 
 map<int,LoadedProcesses>::iterator MemoryManager::findExpiredProcess(){

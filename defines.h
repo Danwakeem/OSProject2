@@ -37,8 +37,8 @@ typedef struct RandomNumbers {
 }RandomNumbers;
 
 typedef struct loadedProcesses {
-   int removeCycleTime;
-   int startIndex;
+   unsigned long long removeCycleTime;
+   unsigned long long startIndex;
    Process p;
 }LoadedProcesses;
 
