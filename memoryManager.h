@@ -22,7 +22,6 @@ class MemoryManager {
       LoadedProcesses createLoadedProcess(Process p, int startIndex);
       bool my_malloc(LoadedProcesses p);
       void my_free(LoadedProcesses p);
-      void shuffleMemory();
       int findEmptySlot(int size);
       map<int,LoadedProcesses>::iterator findExpiredProcess();
 };
