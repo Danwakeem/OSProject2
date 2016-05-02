@@ -22,7 +22,6 @@ using namespace std;
 #define MEANMEM 20
 #define BLOCKSIZE 20000
 
-
 //Structure for my processe information
 typedef struct Process {
    int pid;
@@ -41,5 +40,11 @@ typedef struct loadedProcesses {
    unsigned long long startIndex;
    Process p;
 }LoadedProcesses;
+
+typedef struct DataStore {
+   unsigned long long totalCycles;
+   long runtime;
+   string progName;
+}DataStore;
 
 #endif

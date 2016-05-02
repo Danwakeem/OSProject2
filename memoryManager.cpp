@@ -21,7 +21,7 @@ MemoryManager::~MemoryManager(){
    //free(toggleBlock);
 }
 
-void MemoryManager::startMemoryManager(vector<Process> set){
+DataStore MemoryManager::startMemoryManager(vector<Process> set){
    timespec begin;
    timespec end;
    clock_gettime(CLOCK_REALTIME, &begin);
@@ -30,8 +30,16 @@ void MemoryManager::startMemoryManager(vector<Process> set){
 
    clock_gettime(CLOCK_REALTIME, &end);
    
+   DataStore d;
+   d.totalCycles = totalCycles;
+   d.runtime = end.tv_nsec - begin.tv_nsec;
+   d.progName = programName;
+   return d;
+
+   /*
    cout << programName << " runtime was : " << totalCycles << " cycles" << endl;
    cout << "Time for " << programName << " took : " << end.tv_nsec - begin.tv_nsec << " nano seconds" << endl << endl;
+   */
 }
 
 void MemoryManager::runMemoryManager(vector<Process> set){

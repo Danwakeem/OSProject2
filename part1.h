@@ -2,7 +2,7 @@
 #define PART1_H
 #include "defines.h"
 
-void startPart1Processes(vector<Process> set);
+DataStore startPart1Processes(vector<Process> set);
 int runProcesses(vector<Process> set);
 
 #endif

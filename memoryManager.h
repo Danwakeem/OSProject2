@@ -18,7 +18,7 @@ class MemoryManager {
       MemoryManager(int blockSize,string name);
       ~MemoryManager();
       void runMemoryManager(vector<Process> set);
-      void startMemoryManager(vector<Process> set);
+      DataStore startMemoryManager(vector<Process> set);
       LoadedProcesses createLoadedProcess(Process p, int startIndex);
       bool my_malloc(LoadedProcesses p);
       void my_free(LoadedProcesses p);
